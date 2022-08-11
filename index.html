@@ -8,7 +8,14 @@
     </head>
     <body>
         <div id="app">
-            Hello {{ name }} - {{age}}
+            Hello {{ name }} - {{age}} <br>
+            {{showName()}} <br>
+            My age is : {{showAge()}} <br>
+            {{dynamicAge(30)}} <br>
+            {{cars[1]}} <br>
+            {{users[0].name + ' - ' + users[0].age}} <br>
+            {{isAdmin ? 'You are admin' : 'You are not admin'}}<br>
+
         </div>
 
         <script>
@@ -16,7 +23,35 @@
                 el: '#app',
                 data: {
                     name: 'Karim Ibrahim',
-                    age: 36
+                    age: 36,
+                    cars : ['BMW','TOYOTA','SKODA'],
+                    users: [
+                        {
+                            name: 'Tharwat',
+                            age: 58
+                        },
+                        {
+                            name: 'M Raafat',
+                            age: 36
+                        },
+                        {
+                            name: 'Ahmed Dosoky',
+                            age: 32
+                        }
+                    ],
+                    isAdmin : true,
+                    blocked : false,
+                },
+                methods: {
+                    showName(){
+                        return 'My name is : Karim Ibrahim'
+                    },
+                    showAge(){
+                        return `${this.age}`
+                    },
+                    dynamicAge(age){
+                        return 'My dynamic age is : ' + `${age}`
+                    }
                 }
             });
         </script>
