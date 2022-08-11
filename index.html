@@ -5,6 +5,14 @@
         <meta charset="UTF-8">
         <title>Vue</title>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <style>
+            .red{
+                color:red;
+            }
+            .green{
+                color:green;
+            }
+        </style>
     </head>
     <body>
         <div id="app">
@@ -15,7 +23,11 @@
             {{cars[1]}} <br>
             {{users[0].name + ' - ' + users[0].age}} <br>
             {{isAdmin ? 'You are admin' : 'You are not admin'}}<br>
+            <p :name="name" :class="blocked?'red':'green'">{{name}}</p>
+            <input v-model="name">
 
+            <p>{{counter}}</p>
+            <button @click="increase(2)" >Increase 1</button>
         </div>
 
         <script>
@@ -41,16 +53,21 @@
                     ],
                     isAdmin : true,
                     blocked : false,
+                    status : 'red',
+                    counter: 0,
                 },
                 methods: {
                     showName(){
                         return 'My name is : Karim Ibrahim'
                     },
                     showAge(){
-                        return `${this.age}`
+                        return this.age
                     },
                     dynamicAge(age){
-                        return 'My dynamic age is : ' + `${age}`
+                        return 'My dynamic age is : ' + age
+                    },
+                    increase(val){
+                        this.counter+=val
                     }
                 }
             });
