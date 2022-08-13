@@ -3,7 +3,6 @@
 ## About Project
 
 1. npx -package @vue/cli vue
-2.
 
 ## Thanks
 
